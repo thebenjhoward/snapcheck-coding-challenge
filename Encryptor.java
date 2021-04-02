@@ -2,8 +2,20 @@ import java.lang.Math;
 import java.util.Scanner;
 
 class Encryptor {
+
+    /* Encrypts a given string using the method described in README.md
+     *
+     * @param s a string to be encrypted. The spec gives the length a range
+     *      of 1 <= len <= 81, but it will work for all strings
+     * @return The encrypted string
+     *
+     * @pre s contains no whitespace and is not empty
+     * */
     private static String encrypt(String s) {
+        // gets the number of columns in the 'matrix' that the string is transformed to
         int cols = (int)Math.ceil(Math.sqrt(s.length()));
+
+        // separate iterators for index and column since we don't make a 2d array
         int curr_col = 0;
         int index = 0;
         StringBuilder encryptBuilder = new StringBuilder();
@@ -19,7 +31,11 @@ class Encryptor {
 
         return encryptBuilder.toString();
     }
-
+    
+    /* Prints usage instructions for the program to stderr and exits with a nonzero exit code
+     * 
+     * @post execution will terminate
+     */
     private static void printUsage() {
         System.err.println("Please either give a string through command line arguments or pipe one in");
         System.err.println("Examples:");
