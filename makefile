@@ -1,4 +1,3 @@
-
 default: build
 
 
@@ -10,3 +9,6 @@ clean:
 
 run: build
 	java Encryptor
+
+test: build # requires pytest
+	pytest -vv test_encryptor.py
